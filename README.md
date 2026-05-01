@@ -30,21 +30,29 @@ Ficam fora da fronteira do sistema as responsabilidades específicas de comunica
 ## 4. Diagrama de Contexto em Mermaid
 
 ```mermaid
-flowchart LR
+flowchart TD
+    %%{init: {"layout": "elk"}}%%
 
-    Operador["Operador Agrícola"]
-    Admin["Administrador de Configuração"]
-
-    Maquinas["Máquinas Agrícolas com IoT"]
-    Middleware["Plataforma de Integração / Middleware"]
-    Clima["Serviço de Dados Meteorológicos"]
+    classDef user stroke:#818cf8,fill:#eef2ff
+    classDef external stroke:#fb923c,fill:#fff7ed
+    classDef system stroke:#2dd4bf,fill:#f0fdfa
+    classDef component stroke:#a78bfa,fill:#f5f3ff
 
     subgraph Sistema["Fronteira do Sistema Integrado de Monitoramento e Gestão de Configuração"]
-        App["Sistema Central<br/>Monitoramento, alertas e gestão de configurações"]
-        DB["Banco de Dados Central<br/>Telemetria, configurações, eventos e histórico"]
+        App["Sistema Central<br/>Monitoramento, alertas e gestão de configurações"]:::component
+        DB["Banco de Dados Central<br/>Telemetria, configurações, eventos e histórico"]:::component
         App <--> DB
     end
+    class Sistema system
 
+    Operador["Operador Agrícola"]:::user
+    Admin["Administrador de Configuração"]:::user
+
+    Maquinas["Máquinas Agrícolas com IoT"]:::external
+    Middleware["Plataforma de Integração / Middleware"]:::external
+    Clima["Serviço de Dados Meteorológicos"]:::external
+
+    %% Relações de interação
     Operador -->|"Consulta status, desempenho, alertas e saúde das máquinas"| App
     App -->|"Exibe dashboards, alertas e informações operacionais"| Operador
 
