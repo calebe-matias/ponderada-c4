@@ -28,7 +28,7 @@ A fronteira do **Sistema Integrado de Monitoramento e Gestão de Configuração*
 Ficam fora da fronteira do sistema as responsabilidades específicas de comunicação física com sensores, firmware embarcado das máquinas, coleta direta dos sinais dos dispositivos IoT e fornecimento dos dados climáticos. Essas funções são executadas pelas máquinas agrícolas, pela plataforma de integração e pelo serviço meteorológico externo. O sistema central consome essas informações e as utiliza para monitoramento, análise e configuração.
 
 ## 4. Diagrama de Contexto em Mermaid
-
+![Diagrama-C4-Miro](image.png)
 ```mermaid
 flowchart LR
 
