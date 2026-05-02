@@ -1,5 +1,6 @@
 # Diagrama de Contexto - Sistema Integrado de Monitoramento e Gestão de Configuração para Máquinas Agrícolas
 
+Link do Diagrama no Miro: https://miro.com/app/board/uXjVHZBJIpA=/?share_link_id=182231210722
 ## 1. Visão geral do sistema
 
 O sistema proposto é uma plataforma central para monitoramento, controle e gestão de configuração de máquinas agrícolas conectadas. Ele permite que operadores acompanhem, em tempo real, o desempenho e a saúde das máquinas, enquanto administradores podem consultar, alterar e aplicar configurações nos equipamentos da frota. Além disso, o sistema se integra a serviços externos, como dados meteorológicos, para apoiar decisões operacionais e manutenção preventiva.
@@ -27,19 +28,15 @@ A fronteira do **Sistema Integrado de Monitoramento e Gestão de Configuração*
 
 Ficam fora da fronteira do sistema as responsabilidades específicas de comunicação física com sensores, firmware embarcado das máquinas, coleta direta dos sinais dos dispositivos IoT e fornecimento dos dados climáticos. Essas funções são executadas pelas máquinas agrícolas, pela plataforma de integração e pelo serviço meteorológico externo. O sistema central consome essas informações e as utiliza para monitoramento, análise e configuração.
 
-## 4. Diagrama de Contexto
-![Diagrama de Contexto C4](Diagrama-C4-Miro.png)
+## 4. Diagrama de Contexto feito no Miro
+![https://miro.com/app/board/uXjVHZBJIpA=/?share_link_id=182231210722](Diagrama-C4-Miro.png)
 
 ## 5. Explicação do diagrama
 
-O diagrama mostra que o sistema central é o núcleo da solução. Ele recebe dados das máquinas agrícolas por meio da plataforma de integração, armazena essas informações no banco de dados central e apresenta os dados aos usuários por meio de telas de monitoramento, alertas e relatórios.
+Temos um sistema central que é o núcleo da solução. Ele recebe dados das máquinas agrícolas por meio da plataforma de integração, armazena essas informações no banco de dados central e apresenta os dados aos usuários por meio de telas de monitoramento, alertas e relatórios.
 
 O Operador Agrícola usa o sistema principalmente para acompanhar o funcionamento da frota e tomar decisões rápidas no campo. Já o Administrador de Configuração utiliza o sistema para manter os equipamentos corretamente parametrizados, enviando configurações para as máquinas quando necessário.
 
 As máquinas agrícolas não se comunicam diretamente com os usuários. Elas enviam dados para o middleware, que atua como intermediário técnico entre os dispositivos IoT e o sistema central. Isso torna a arquitetura mais organizada, pois o sistema central não precisa lidar diretamente com todos os protocolos e detalhes de comunicação dos equipamentos.
 
 A integração com o serviço meteorológico permite que o sistema complemente os dados das máquinas com informações externas de clima. Com isso, é possível apoiar decisões como manutenção preventiva, ajuste de operação, planejamento de atividades agrícolas e redução de riscos operacionais.
-
-## 6. Conclusão
-
-O Diagrama de Contexto deixa claro que o sistema atua como uma camada central de inteligência, conectando operadores, administradores, máquinas agrícolas, middleware, banco de dados e serviços externos. Sua principal responsabilidade é transformar dados operacionais e climáticos em informações úteis para monitoramento, controle, configuração e tomada de decisão no ambiente agrícola.
