@@ -27,39 +27,8 @@ A fronteira do **Sistema Integrado de Monitoramento e Gestão de Configuração*
 
 Ficam fora da fronteira do sistema as responsabilidades específicas de comunicação física com sensores, firmware embarcado das máquinas, coleta direta dos sinais dos dispositivos IoT e fornecimento dos dados climáticos. Essas funções são executadas pelas máquinas agrícolas, pela plataforma de integração e pelo serviço meteorológico externo. O sistema central consome essas informações e as utiliza para monitoramento, análise e configuração.
 
-## 4. Diagrama de Contexto em Mermaid
+## 4. Diagrama de Contexto
 ![Diagrama de Contexto C4](Diagrama-C4-Miro.png)
-```mermaid
-flowchart LR
-
-    Operador["Operador Agrícola"]
-    Admin["Administrador de Configuração"]
-
-    Maquinas["Máquinas Agrícolas com IoT"]
-    Middleware["Plataforma de Integração / Middleware"]
-    Clima["Serviço de Dados Meteorológicos"]
-
-    subgraph Sistema["Fronteira do Sistema Integrado de Monitoramento e Gestão de Configuração"]
-        App["Sistema Central<br/>Monitoramento, alertas e gestão de configurações"]
-        DB["Banco de Dados Central<br/>Telemetria, configurações, eventos e histórico"]
-        App <--> DB
-    end
-
-    Operador -->|"Consulta status, desempenho, alertas e saúde das máquinas"| App
-    App -->|"Exibe dashboards, alertas e informações operacionais"| Operador
-
-    Admin -->|"Cria, altera e aplica configurações"| App
-    App -->|"Mostra histórico, validações e status das configurações"| Admin
-
-    Maquinas -->|"Enviam telemetria, sensores, falhas e localização"| Middleware
-    Middleware -->|"Encaminha dados tratados das máquinas"| App
-
-    App -->|"Envia comandos e novas configurações"| Middleware
-    Middleware -->|"Entrega comandos e configurações"| Maquinas
-
-    App -->|"Consulta previsão do tempo e condições climáticas"| Clima
-    Clima -->|"Retorna dados meteorológicos"| App
-````
 
 ## 5. Explicação do diagrama
 

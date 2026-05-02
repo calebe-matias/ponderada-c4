@@ -1,0 +1,31 @@
+```mermaid
+flowchart LR
+
+    Operador["Operador Agrícola"]
+    Admin["Administrador de Configuração"]
+
+    Maquinas["Máquinas Agrícolas com IoT"]
+    Middleware["Plataforma de Integração / Middleware"]
+    Clima["Serviço de Dados Meteorológicos"]
+
+    subgraph Sistema["Fronteira do Sistema Integrado de Monitoramento e Gestão de Configuração"]
+        App["Sistema Central<br/>Monitoramento, alertas e gestão de configurações"]
+        DB["Banco de Dados Central<br/>Telemetria, configurações, eventos e histórico"]
+        App <--> DB
+    end
+
+    Operador -->|"Consulta status, desempenho, alertas e saúde das máquinas"| App
+    App -->|"Exibe dashboards, alertas e informações operacionais"| Operador
+
+    Admin -->|"Cria, altera e aplica configurações"| App
+    App -->|"Mostra histórico, validações e status das configurações"| Admin
+
+    Maquinas -->|"Enviam telemetria, sensores, falhas e localização"| Middleware
+    Middleware -->|"Encaminha dados tratados das máquinas"| App
+
+    App -->|"Envia comandos e novas configurações"| Middleware
+    Middleware -->|"Entrega comandos e configurações"| Maquinas
+
+    App -->|"Consulta previsão do tempo e condições climáticas"| Clima
+    Clima -->|"Retorna dados meteorológicos"| App
+```
